@@ -1,0 +1,6 @@
+{
+  "name": "Nightingale International Secondary School",
+  "description": "Nightingale International Secondary School — Block D (Grades 7–10), Kopundole, Lalitpur, Nepal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
