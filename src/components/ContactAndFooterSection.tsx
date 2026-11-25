@@ -308,6 +308,8 @@ export const ContactAndFooterSection: React.FC = () => {
               src={SCHOOL_INFO.logoSrc}
               alt="Nightingale Logo"
               referrerPolicy="no-referrer"
+              loading="lazy"
+              decoding="async"
               className="w-6 h-6 object-contain rounded-full"
             />
             <span>

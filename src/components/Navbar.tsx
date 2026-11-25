@@ -47,6 +47,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
             src={SCHOOL_INFO.logoSrc}
             alt="Nightingale International Secondary School Logo"
             referrerPolicy="no-referrer"
+            decoding="async"
             className="w-8 h-8 sm:w-9 sm:h-9 object-contain shrink-0 rounded-full"
           />
           <span className="font-display text-base sm:text-lg font-bold tracking-wider uppercase text-white">

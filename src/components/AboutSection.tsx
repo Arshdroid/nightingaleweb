@@ -150,6 +150,8 @@ export const AboutSection: React.FC = () => {
                   src={featuredPhoto.src}
                   alt={featuredPhoto.title}
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
                   initial={{ opacity: 0, scale: 1.03 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}

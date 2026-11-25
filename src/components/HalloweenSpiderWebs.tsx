@@ -145,10 +145,17 @@ export const HalloweenSpiderWebs: React.FC = () => {
     return () => window.removeEventListener('resize', updateSize);
   }, []);
 
-  // Cursor proximity plucking on the white content sheet (only runs on mousemove, never on scroll)
+  // Cursor proximity plucking on the white content sheet (rAF-throttled, mousemove only)
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current) return;
+    let throttleRaf = 0;
+    let lastEvent: MouseEvent | null = null;
+
+    const processMouseMove = () => {
+      throttleRaf = 0;
+      const e = lastEvent;
+      lastEvent = null;
+      if (!e || !containerRef.current) return;
+
       const rect = containerRef.current.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
@@ -178,8 +185,17 @@ export const HalloweenSpiderWebs: React.FC = () => {
       }
     };
 
+    const handleMouseMove = (e: MouseEvent) => {
+      lastEvent = e;
+      if (throttleRaf) return;
+      throttleRaf = requestAnimationFrame(processMouseMove);
+    };
+
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (throttleRaf) cancelAnimationFrame(throttleRaf);
+    };
   }, [startPhysicsLoop]);
 
   const spawnHalloweenBurst = (x: number, y: number) => {

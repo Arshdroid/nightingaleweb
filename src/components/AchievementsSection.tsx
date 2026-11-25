@@ -99,6 +99,8 @@ export function AchievementsSection() {
                 key={current}
                 src={slide.image}
                 alt={slide.title}
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 w-full h-full object-cover"
                 initial={{ x: direction * 60, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}

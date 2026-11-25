@@ -132,3 +132,19 @@
     animation: none;
   }
 }
+
+/* Touch boards and weak GPUs: backdrop blur is expensive, use solid fills */
+@media (pointer: coarse), (prefers-reduced-transparency: reduce) {
+  .glass-nav-bar {
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .glass-card,
+  .glass-pill,
+  .glass-btn-cta {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
