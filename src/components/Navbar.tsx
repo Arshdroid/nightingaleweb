@@ -127,7 +127,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
 
       {/* Expandable School Directory & Mobile Navigation Drawer */}
       {drawerOpen && (
-        <div className="bg-black/95 backdrop-blur-2xl border-t border-white/15 px-6 py-6">
+        <div className="bg-[#13273F]/95 backdrop-blur-2xl border-t border-white/15 px-6 py-6">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-white">
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest text-white/70 mb-3">

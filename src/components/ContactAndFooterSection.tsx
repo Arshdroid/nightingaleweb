@@ -188,41 +188,41 @@ export const ContactAndFooterSection: React.FC = () => {
     <>
       <section
         id="contact"
-        className="w-full bg-[#ECEEF2] py-16 lg:py-24 border-b border-neutral-200"
+        className="w-full py-16 lg:py-24 border-b border-[#13273F]/15"
       >
         <div className="max-w-5xl mx-auto px-6 space-y-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-neutral-500 mb-2">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#13273F]/65 mb-2">
               Get in Touch · {SCHOOL_INFO.blockName} &amp; Main Office
             </p>
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-neutral-900 tracking-tight">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#13273F] tracking-tight">
               {SCHOOL_INFO.fullName}
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-base text-neutral-800">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-base text-[#13273F]">
             <div className="glass-card-light p-5 flex items-start gap-3.5 hover:border-neutral-500/60 transition-colors">
-              <MapPin className="w-5 h-5 text-neutral-900 shrink-0 mt-0.5" aria-hidden="true" />
+              <MapPin className="w-5 h-5 text-[#13273F] shrink-0 mt-0.5" aria-hidden="true" />
               <div>
-                <p className="text-xs uppercase tracking-wider text-neutral-500">
+                <p className="text-xs uppercase tracking-wider text-[#13273F]/65">
                   Campus Address
                 </p>
-                <p className="font-medium text-neutral-900 mt-0.5">{SCHOOL_INFO.address}</p>
+                <p className="font-medium text-[#13273F] mt-0.5">{SCHOOL_INFO.address}</p>
               </div>
             </div>
 
             <div className="glass-card-light p-5 flex items-start gap-3.5 hover:border-neutral-500/60 transition-colors">
-              <Phone className="w-5 h-5 text-neutral-900 shrink-0 mt-0.5" aria-hidden="true" />
+              <Phone className="w-5 h-5 text-[#13273F] shrink-0 mt-0.5" aria-hidden="true" />
               <div>
-                <p className="text-xs uppercase tracking-wider text-neutral-500">
+                <p className="text-xs uppercase tracking-wider text-[#13273F]/65">
                   Main School Telephone
                 </p>
-                <p className="font-mono-tabular font-medium text-neutral-900 mt-0.5">
-                  <a href="tel:015435663" className="hover:text-neutral-600 hover:underline">
+                <p className="font-mono-tabular font-medium text-[#13273F] mt-0.5">
+                  <a href="tel:015435663" className="hover:text-[#13273F]/75 hover:underline">
                     015435663
                   </a>
                   ,{' '}
-                  <a href="tel:015430743" className="hover:text-neutral-600 hover:underline">
+                  <a href="tel:015430743" className="hover:text-[#13273F]/75 hover:underline">
                     015430743
                   </a>
                 </p>
@@ -230,13 +230,13 @@ export const ContactAndFooterSection: React.FC = () => {
             </div>
 
             <div className="glass-card-light p-5 flex items-start gap-3.5 hover:border-neutral-500/60 transition-colors">
-              <Phone className="w-5 h-5 text-neutral-900 shrink-0 mt-0.5" aria-hidden="true" />
+              <Phone className="w-5 h-5 text-[#13273F] shrink-0 mt-0.5" aria-hidden="true" />
               <div>
-                <p className="text-xs uppercase tracking-wider text-neutral-500">
+                <p className="text-xs uppercase tracking-wider text-[#13273F]/65">
                   Block D Direct Contact (Grades 7 – 10)
                 </p>
-                <p className="font-mono-tabular font-medium text-neutral-900 mt-0.5">
-                  <a href="tel:015451791" className="hover:text-neutral-600 hover:underline">
+                <p className="font-mono-tabular font-medium text-[#13273F] mt-0.5">
+                  <a href="tel:015451791" className="hover:text-[#13273F]/75 hover:underline">
                     {SCHOOL_INFO.blockDPhone}
                   </a>
                 </p>
@@ -244,13 +244,13 @@ export const ContactAndFooterSection: React.FC = () => {
             </div>
 
             <div className="glass-card-light p-5 flex items-start gap-3.5 hover:border-neutral-500/60 transition-colors">
-              <Mail className="w-5 h-5 text-neutral-900 shrink-0 mt-0.5" aria-hidden="true" />
+              <Mail className="w-5 h-5 text-[#13273F] shrink-0 mt-0.5" aria-hidden="true" />
               <div>
-                <p className="text-xs uppercase tracking-wider text-neutral-500">
+                <p className="text-xs uppercase tracking-wider text-[#13273F]/65">
                   Official Email
                 </p>
-                <p className="font-medium text-neutral-900 mt-0.5">
-                  <a href={`mailto:${SCHOOL_INFO.email}`} className="hover:text-neutral-600 hover:underline">
+                <p className="font-medium text-[#13273F] mt-0.5">
+                  <a href={`mailto:${SCHOOL_INFO.email}`} className="hover:text-[#13273F]/75 hover:underline">
                     {SCHOOL_INFO.email}
                   </a>
                 </p>
@@ -263,7 +263,7 @@ export const ContactAndFooterSection: React.FC = () => {
               href={SCHOOL_INFO.facebookUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-pill-light px-5 py-2.5 rounded-full text-neutral-900 hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-colors"
+              className="glass-pill-light px-5 py-2.5 rounded-full text-[#13273F] hover:bg-[#13273F] hover:text-white hover:border-neutral-900 transition-colors"
             >
               Facebook
             </a>
@@ -271,7 +271,7 @@ export const ContactAndFooterSection: React.FC = () => {
               href={SCHOOL_INFO.youtubeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-pill-light px-5 py-2.5 rounded-full text-neutral-900 hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-colors"
+              className="glass-pill-light px-5 py-2.5 rounded-full text-[#13273F] hover:bg-[#13273F] hover:text-white hover:border-neutral-900 transition-colors"
             >
               YouTube
             </a>
@@ -279,7 +279,7 @@ export const ContactAndFooterSection: React.FC = () => {
               href="https://maps.google.com/?q=Nightingale+International+Secondary+School+Kopundole+Lalitpur"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-pill-light px-5 py-2.5 rounded-full text-neutral-900 hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-colors inline-flex items-center gap-1.5"
+              className="glass-pill-light px-5 py-2.5 rounded-full text-[#13273F] hover:bg-[#13273F] hover:text-white hover:border-neutral-900 transition-colors inline-flex items-center gap-1.5"
             >
               <span>Get Directions</span>
               <ExternalLink className="w-3 h-3" />
@@ -287,11 +287,11 @@ export const ContactAndFooterSection: React.FC = () => {
           </div>
 
           {/* Interactive Google Map embed of Block D & Nightingale Campus */}
-          <div className="glass-card-light overflow-hidden rounded-2xl border border-neutral-300 shadow-sm mt-8">
-            <div className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-neutral-200 bg-white/60">
+          <div className="glass-card-light overflow-hidden rounded-2xl border border-[#13273F]/20 shadow-sm mt-8">
+            <div className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#13273F]/15 bg-white/60">
               <div className="flex items-center gap-2.5">
-                <MapPin className="w-4 h-4 text-neutral-900 shrink-0" />
-                <span className="font-display font-bold text-sm sm:text-base text-neutral-900">
+                <MapPin className="w-4 h-4 text-[#13273F] shrink-0" />
+                <span className="font-display font-bold text-sm sm:text-base text-[#13273F]">
                   Block D &amp; Campus Location · Kopundole, Lalitpur, Nepal
                 </span>
               </div>
@@ -299,7 +299,7 @@ export const ContactAndFooterSection: React.FC = () => {
                 href="https://maps.google.com/?q=Nightingale+International+Secondary+School+Kopundole+Lalitpur"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 hover:text-neutral-600 underline underline-offset-4"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#13273F] hover:text-[#13273F]/75 underline underline-offset-4"
               >
                 <span>View Full Map</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -323,7 +323,7 @@ export const ContactAndFooterSection: React.FC = () => {
       </section>
 
       {/* Footer with Navigation, Auto Scroll & Fullscreen Button */}
-      <footer className="w-full bg-[#F4F5F7] text-neutral-600 py-8 border-t border-neutral-200/80">
+      <footer className="w-full bg-[#F4F5F7] text-[#13273F]/75 py-8 border-t border-[#13273F]/15/80">
         <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <div className="flex items-center gap-3">
             <img
@@ -340,16 +340,16 @@ export const ContactAndFooterSection: React.FC = () => {
           </div>
 
           <div className="flex flex-wrap items-center gap-3 sm:gap-5">
-            <a href="#about" className="hover:text-neutral-900 transition-colors">
+            <a href="#about" className="hover:text-[#13273F] transition-colors">
               About Us
             </a>
-            <a href="#faculty" className="hover:text-neutral-900 transition-colors">
+            <a href="#faculty" className="hover:text-[#13273F] transition-colors">
               Teachers
             </a>
-            <a href="#announcements" className="hover:text-neutral-900 transition-colors">
+            <a href="#announcements" className="hover:text-[#13273F] transition-colors">
               Announcements
             </a>
-            <a href="#contact" className="hover:text-neutral-900 transition-colors">
+            <a href="#contact" className="hover:text-[#13273F] transition-colors">
               Contact
             </a>
 
@@ -363,8 +363,8 @@ export const ContactAndFooterSection: React.FC = () => {
               aria-label={isTourActive ? 'Stop Auto Scroll' : 'Start Auto Scroll'}
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border shadow-xs transition-all cursor-pointer font-medium ${
                 isTourActive
-                  ? 'bg-neutral-900 text-white border-neutral-900 hover:bg-neutral-700 hover:text-white'
-                  : 'border-neutral-300 bg-white hover:bg-neutral-50 hover:border-neutral-500 text-neutral-800 hover:text-neutral-900'
+                  ? 'bg-[#13273F] text-white border-neutral-900 hover:bg-neutral-700 hover:text-white'
+                  : 'border-[#13273F]/20 bg-white hover:bg-neutral-50 hover:border-neutral-500 text-[#13273F] hover:text-[#13273F]'
               }`}
             >
               {isTourActive ? (
@@ -374,7 +374,7 @@ export const ContactAndFooterSection: React.FC = () => {
                 </>
               ) : (
                 <>
-                  <Play className="w-3 h-3 fill-current text-neutral-800" />
+                  <Play className="w-3 h-3 fill-current text-[#13273F]" />
                   <span>Auto Scroll</span>
                 </>
               )}
@@ -385,12 +385,12 @@ export const ContactAndFooterSection: React.FC = () => {
               type="button"
               onClick={toggleFullscreen}
               aria-label={isFullscreen ? 'Exit Full Screen' : 'Enter Full Screen'}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-neutral-300 bg-white hover:bg-neutral-50 hover:border-neutral-500 text-neutral-800 hover:text-neutral-900 shadow-xs transition-all cursor-pointer font-medium"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#13273F]/20 bg-white hover:bg-neutral-50 hover:border-neutral-500 text-[#13273F] hover:text-[#13273F] shadow-xs transition-all cursor-pointer font-medium"
             >
               {isFullscreen ? (
-                <Minimize className="w-3 h-3 text-neutral-700" />
+                <Minimize className="w-3 h-3 text-[#13273F]/85" />
               ) : (
-                <Maximize className="w-3 h-3 text-neutral-700" />
+                <Maximize className="w-3 h-3 text-[#13273F]/85" />
               )}
               <span>{isFullscreen ? 'Exit Full Screen' : 'Full Screen'}</span>
             </button>

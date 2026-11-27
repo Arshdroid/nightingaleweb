@@ -7,6 +7,7 @@ import { HalloweenSpiderWebs } from './components/HalloweenSpiderWebs';
 import { HeroBanner } from './components/HeroBanner';
 import { Navbar } from './components/Navbar';
 import { ScheduleAndFacultySection } from './components/ScheduleAndFacultySection';
+import { Scroll3DBackground } from './components/Scroll3DBackground';
 
 export default function App() {
   const searchInputRef = useRef<HTMLInputElement | null>(null);
@@ -23,15 +24,16 @@ export default function App() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="min-h-screen bg-black text-white selection:bg-neutral-900 selection:text-white">
+      <div className="min-h-screen bg-[#13273F] text-[#E9D4C3] selection:bg-[#4E0000] selection:text-[#E9D4C3]">
         <Navbar onOpenSearch={handleOpenSearch} />
 
         <main>
-          {/* Pitch-Black Hero */}
+          {/* Mystic Navy Hero */}
           <HeroBanner />
 
-          {/* Soft Off-White & Cool-Gray Content Sheet with Interactive Halloween Spider Webs */}
-          <div className="relative z-20 bg-[#F4F5F7] text-neutral-900 rounded-t-[2rem] border-t border-neutral-200 shadow-2xl overflow-hidden">
+          {/* Mother of Pearl Content Sheet with Mystic Navy & Red Inferno 3D */}
+          <div className="relative z-20 bg-[#E9D4C3] text-[#13273F] rounded-t-[2rem] border-t border-[#13273F]/15 shadow-2xl overflow-x-clip">
+            <Scroll3DBackground />
             <HalloweenSpiderWebs />
             <div className="relative z-20">
               <AboutSection />

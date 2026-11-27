@@ -123,14 +123,14 @@ export function AchievementsSection() {
             <button
               onClick={prev}
               aria-label="Previous slide"
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/50 hover:bg-neutral-700 text-white flex items-center justify-center backdrop-blur-sm transition-all duration-200 hover:scale-110"
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#13273F]/50 hover:bg-neutral-700 text-white flex items-center justify-center backdrop-blur-sm transition-all duration-200 hover:scale-110"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={next}
               aria-label="Next slide"
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/50 hover:bg-neutral-700 text-white flex items-center justify-center backdrop-blur-sm transition-all duration-200 hover:scale-110"
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#13273F]/50 hover:bg-neutral-700 text-white flex items-center justify-center backdrop-blur-sm transition-all duration-200 hover:scale-110"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -182,7 +182,7 @@ export function AchievementsSection() {
                   }`}
                 />
               ))}
-              <span className="ml-auto text-xs text-neutral-500 tabular-nums">
+              <span className="ml-auto text-xs text-[#13273F]/65 tabular-nums">
                 {current + 1} / {SLIDES.length}
               </span>
             </div>

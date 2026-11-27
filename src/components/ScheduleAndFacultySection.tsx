@@ -20,28 +20,28 @@ export const ScheduleAndFacultySection: React.FC = () => {
   return (
     <section
       id="faculty"
-      className="w-full bg-[#ECEEF2] py-16 lg:py-24 border-b border-neutral-200/80"
+      className="w-full py-16 lg:py-24 border-b border-[#13273F]/15"
     >
       <div className="max-w-7xl mx-auto px-6">
         <div>
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 border-b border-neutral-300/80">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 border-b border-[#13273F]/20">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-neutral-500 mb-2">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#13273F]/65 mb-2">
                 School Leadership &amp; Grade Incharges
               </p>
-              <h2 className="font-display text-3xl sm:text-4xl font-bold text-neutral-900 tracking-tight">
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#13273F] tracking-tight">
                 Teachers &amp; Leadership Directory
               </h2>
             </div>
 
             <div className="flex items-center gap-3">
-              <span className="text-xs uppercase tracking-wider text-neutral-600">
+              <span className="text-xs uppercase tracking-wider text-[#13273F]/75">
                 Block D Direct Contact:
               </span>
               <button
                 type="button"
                 onClick={handleCopyBlockPhone}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-900 text-white text-xs font-mono-tabular font-semibold hover:bg-neutral-700 transition-colors cursor-pointer shadow-sm"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#13273F] text-white text-xs font-mono-tabular font-semibold hover:bg-neutral-700 transition-colors cursor-pointer shadow-sm"
               >
                 <span>{SCHOOL_INFO.blockDPhone}</span>
                 {copiedPhone ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
@@ -61,37 +61,37 @@ export const ScheduleAndFacultySection: React.FC = () => {
                 className="glass-card-light p-6 sm:p-7 flex flex-col justify-between gap-6 hover:border-neutral-400/60 hover:shadow-lg transition-all"
               >
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-neutral-500">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[#13273F]/65">
                     {member.role} · {member.grade}
                   </p>
-                  <h3 className="font-display text-2xl font-bold text-neutral-900 mt-2">
+                  <h3 className="font-display text-2xl font-bold text-[#13273F] mt-2">
                     {member.name}
                   </h3>
-                  <p className="text-sm text-neutral-600 mt-1">
+                  <p className="text-sm text-[#13273F]/75 mt-1">
                     {member.block} — {SCHOOL_INFO.fullName}
                   </p>
                 </div>
 
-                <div className="space-y-2.5 pt-4 border-t border-neutral-200 text-sm">
+                <div className="space-y-2.5 pt-4 border-t border-[#13273F]/15 text-sm">
                   <div className="flex items-center gap-2.5">
-                    <Phone className="w-4 h-4 text-neutral-700 shrink-0" aria-hidden="true" />
+                    <Phone className="w-4 h-4 text-[#13273F]/85 shrink-0" aria-hidden="true" />
                     <a
                       href={`tel:${member.phone.replace(/[^0-9+]/g, '')}`}
-                      className="font-mono-tabular text-neutral-900 hover:text-neutral-600 hover:underline"
+                      className="font-mono-tabular text-[#13273F] hover:text-[#13273F]/75 hover:underline"
                     >
                       {member.phone}
                     </a>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <Mail className="w-4 h-4 text-neutral-500 shrink-0" aria-hidden="true" />
+                    <Mail className="w-4 h-4 text-[#13273F]/65 shrink-0" aria-hidden="true" />
                     <a
                       href={`mailto:${member.email}`}
-                      className="text-neutral-800 hover:text-neutral-600 hover:underline truncate"
+                      className="text-[#13273F] hover:text-[#13273F]/75 hover:underline truncate"
                     >
                       {member.email}
                     </a>
                   </div>
-                  <p className="text-xs text-neutral-500 pt-1">{member.officeHours}</p>
+                  <p className="text-xs text-[#13273F]/65 pt-1">{member.officeHours}</p>
                 </div>
               </motion.div>
             ))}

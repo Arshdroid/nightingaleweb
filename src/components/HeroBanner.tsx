@@ -284,7 +284,7 @@ export const HeroBanner: React.FC = () => {
       id="home"
       ref={containerRef}
       aria-label="Nightingale International Secondary School Interactive Reel"
-      className="relative w-full h-[320vh] bg-black text-white"
+      className="relative w-full h-[320vh] bg-[#13273F] text-white"
     >
       {/* Sticky Viewport Stage */}
       <div className="sticky top-0 h-screen h-svh w-full overflow-hidden flex flex-col justify-between">
@@ -315,7 +315,7 @@ export const HeroBanner: React.FC = () => {
         >
           <h1
             aria-label="Nightingale International Secondary School"
-            className="font-display font-bold uppercase text-white tracking-tight leading-[0.92] text-[clamp(2.5rem,10vw,8.5rem)] flex justify-center overflow-hidden drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]"
+            className="font-display font-bold uppercase text-[#F7EFE8] tracking-tight leading-[0.92] text-[clamp(2.5rem,10vw,8.5rem)] flex justify-center overflow-hidden [text-shadow:0_0_24px_rgba(233,212,195,0.65),0_0_60px_rgba(233,212,195,0.35),0_4px_24px_rgba(19,39,63,0.9)]"
           >
             {SCHOOL_INFO.shortName.split('').map((char, idx) => (
               <motion.span
@@ -334,7 +334,7 @@ export const HeroBanner: React.FC = () => {
             ))}
           </h1>
 
-          <p className="mt-4 text-xs sm:text-sm uppercase tracking-[0.3em] font-mono-tabular text-white/90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] max-w-xl mx-auto">
+          <p className="mt-4 text-xs sm:text-sm uppercase tracking-[0.3em] font-mono-tabular text-[#E9D4C3] [text-shadow:0_0_16px_rgba(233,212,195,0.55),0_2px_10px_rgba(19,39,63,0.9)] max-w-xl mx-auto">
             {SCHOOL_INFO.fullName}
           </p>
         </motion.div>
@@ -352,7 +352,7 @@ export const HeroBanner: React.FC = () => {
                 {SCHOOL_INFO.blockName} ({SCHOOL_INFO.blockGradeRange}) · Kopundole
               </span>
             </div>
-            <p className="font-display font-bold text-white leading-[1.08] tracking-tight text-[clamp(1.75rem,3.5vw,2.75rem)] [text-wrap:balance] drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
+            <p className="font-display font-bold text-[#F7EFE8] leading-[1.08] tracking-tight text-[clamp(1.75rem,3.5vw,2.75rem)] [text-wrap:balance] [text-shadow:0_0_20px_rgba(233,212,195,0.5),0_2px_12px_rgba(19,39,63,0.85)]">
               Leading the Way in Secondary Education
             </p>
           </div>
