@@ -17,13 +17,18 @@ export const ContactAndFooterSection: React.FC = () => {
 
   const isActiveRef = useRef(false);
   const rafIdRef = useRef<number | null>(null);
-  const lastTimeRef = useRef<number>(0);
+  const startTimeRef = useRef<number>(0);
   const scrollPosRef = useRef<number>(0);
   const isResettingRef = useRef<boolean>(false);
   const loopTimeoutRef = useRef<number | null>(null);
+  const watchdogRef = useRef<number | null>(null);
+  const prevScrollBehaviorRef = useRef<string | null>(null);
 
   // Speed in pixels per second (increased to ~175px/sec for brisk, smooth scroll)
   const SCROLL_SPEED = 175;
+
+  const getScrollingElement = (): HTMLElement =>
+    (document.scrollingElement as HTMLElement | null) || document.documentElement;
 
   // Track Fullscreen status
   useEffect(() => {
@@ -57,68 +62,85 @@ export const ContactAndFooterSection: React.FC = () => {
       clearTimeout(loopTimeoutRef.current);
       loopTimeoutRef.current = null;
     }
+    if (watchdogRef.current !== null) {
+      clearInterval(watchdogRef.current);
+      watchdogRef.current = null;
+    }
     isResettingRef.current = false;
+    document.documentElement.classList.remove('tour-scrolling');
+    if (prevScrollBehaviorRef.current !== null) {
+      document.documentElement.style.scrollBehavior = prevScrollBehaviorRef.current;
+      prevScrollBehaviorRef.current = null;
+    }
   }, []);
 
-  const runScrollStep = useCallback(
-    (now: number) => {
-      if (!isActiveRef.current) return;
+  // Advances the page from the wall clock, not from per-tick deltas: some
+  // smart-board browsers throttle or freeze rAF while a canvas is being
+  // redrawn, and a delta-clamped loop then stalls at a few px per second.
+  const stepScroll = useCallback(() => {
+    if (!isActiveRef.current || isResettingRef.current) return;
 
-      if (!lastTimeRef.current) {
-        lastTimeRef.current = now;
-      }
-      const dt = Math.min((now - lastTimeRef.current) / 1000, 0.1);
-      lastTimeRef.current = now;
+    const root = getScrollingElement();
+    const maxScroll = Math.max(0, root.scrollHeight - window.innerHeight);
+    const elapsed = (performance.now() - startTimeRef.current) / 1000;
+    const target = Math.min(elapsed * SCROLL_SPEED, maxScroll);
 
-      if (!isResettingRef.current) {
-        scrollPosRef.current += SCROLL_SPEED * dt;
-        window.scrollTo(0, scrollPosRef.current);
+    scrollPosRef.current = target;
+    window.scrollTo(0, target);
+    // Some embedded browsers ignore window.scrollTo during other scroll work;
+    // writing scrollTop as well covers them.
+    if (Math.abs(root.scrollTop - target) > 2) {
+      root.scrollTop = target;
+    }
 
-        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    if (target >= maxScroll - 0.5) {
+      isResettingRef.current = true;
+      // Pause briefly at the bottom, then jump back to the top
+      loopTimeoutRef.current = window.setTimeout(() => {
+        if (!isActiveRef.current) return;
+        window.scrollTo(0, 0);
+        root.scrollTop = 0;
 
-        // Reached the end of the website
-        if (window.scrollY >= maxScroll - 4 || scrollPosRef.current >= maxScroll) {
-          isResettingRef.current = true;
-          // Pause briefly at the bottom before smoothly looping back to the top
-          loopTimeoutRef.current = window.setTimeout(() => {
-            if (!isActiveRef.current) return;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        loopTimeoutRef.current = window.setTimeout(() => {
+          if (!isActiveRef.current) return;
+          scrollPosRef.current = 0;
+          startTimeRef.current = performance.now();
+          isResettingRef.current = false;
+        }, 500);
+      }, 1600);
+    }
+  }, [SCROLL_SPEED]);
 
-            // Allow smooth scroll to top to finish, then continue downward
-            loopTimeoutRef.current = window.setTimeout(() => {
-              if (!isActiveRef.current) return;
-              scrollPosRef.current = 0;
-              lastTimeRef.current = performance.now();
-              isResettingRef.current = false;
-              rafIdRef.current = requestAnimationFrame(runScrollStep);
-            }, 1200);
-          }, 1800);
-          return;
-        }
-      }
-
-      rafIdRef.current = requestAnimationFrame(runScrollStep);
-    },
-    [SCROLL_SPEED]
-  );
+  const rafLoop = useCallback(() => {
+    if (!isActiveRef.current) return;
+    stepScroll();
+    rafIdRef.current = requestAnimationFrame(rafLoop);
+  }, [stepScroll]);
 
   const startTour = useCallback(() => {
     stopTour();
     isActiveRef.current = true;
     setIsTourActive(true);
 
-    // Scroll smoothly to top to start from the home page
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // The stylesheet enables smooth scrolling; every programmatic step would
+    // restart a smooth animation and stall on slow devices (smart boards).
+    // The class forces instant scrolling on every element for the whole tour.
+    prevScrollBehaviorRef.current = document.documentElement.style.scrollBehavior;
+    document.documentElement.style.scrollBehavior = 'auto';
+    document.documentElement.classList.add('tour-scrolling');
 
-    // Begin downwards scrolling once reached top
-    loopTimeoutRef.current = window.setTimeout(() => {
-      if (!isActiveRef.current) return;
-      scrollPosRef.current = window.scrollY;
-      lastTimeRef.current = performance.now();
-      isResettingRef.current = false;
-      rafIdRef.current = requestAnimationFrame(runScrollStep);
-    }, 600);
-  }, [runScrollStep, stopTour]);
+    window.scrollTo(0, 0);
+    scrollPosRef.current = 0;
+    startTimeRef.current = performance.now();
+    isResettingRef.current = false;
+
+    if (rafIdRef.current !== null) {
+      cancelAnimationFrame(rafIdRef.current);
+    }
+    rafIdRef.current = requestAnimationFrame(rafLoop);
+    // Watchdog: keeps the tour advancing even when rAF is throttled or frozen
+    watchdogRef.current = window.setInterval(stepScroll, 100);
+  }, [rafLoop, stepScroll, stopTour]);
 
   const toggleTour = useCallback(() => {
     if (isTourActive) {

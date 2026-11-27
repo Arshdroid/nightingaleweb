@@ -107,10 +107,10 @@ export const HeroBanner: React.FC = () => {
     const shiftY = (canvasHeight - destHeight) / 2;
 
     ctx.imageSmoothingEnabled = true;
-    ctx.imageSmoothingQuality = 'high';
+    ctx.imageSmoothingQuality = tier === 'high' ? 'high' : 'medium';
     ctx.drawImage(img, 0, 0, imgWidth, imgHeight, shiftX, shiftY, destWidth, destHeight);
     activeFrameRef.current = frameNum;
-  }, []);
+  }, [tier]);
 
   // Resize canvas to match display size with DPR scaling
   const resizeCanvas = useCallback(() => {
@@ -118,8 +118,14 @@ export const HeroBanner: React.FC = () => {
     if (!canvas) return;
     const rect = canvas.getBoundingClientRect();
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const targetW = Math.round(rect.width * dpr);
-    const targetH = Math.round(rect.height * dpr);
+    // Cap the backbuffer: 4K smart boards would otherwise redraw 8M+ pixels on
+    // every scroll tick, starving the auto-scroll driver. Normal displays are
+    // below the cap and render exactly as before.
+    const rawW = rect.width * dpr;
+    const rawH = rect.height * dpr;
+    const downscale = Math.min(1, 2560 / rawW, 1440 / rawH);
+    const targetW = Math.max(1, Math.round(rawW * downscale));
+    const targetH = Math.max(1, Math.round(rawH * downscale));
 
     if (canvas.width !== targetW || canvas.height !== targetH) {
       canvas.width = targetW;

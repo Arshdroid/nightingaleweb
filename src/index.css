@@ -148,3 +148,10 @@
     -webkit-backdrop-filter: none;
   }
 }
+
+/* Auto Scroll tour: smooth scrolling must yield to the programmatic driver */
+html.tour-scrolling,
+html.tour-scrolling * {
+  scroll-behavior: auto !important;
+  scroll-snap-type: none !important;
+}
