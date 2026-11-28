@@ -349,6 +349,9 @@ export const ContactAndFooterSection: React.FC = () => {
             <a href="#announcements" className="hover:text-[#13273F] transition-colors">
               Announcements
             </a>
+            <a href="#gallery" className="hover:text-[#13273F] transition-colors">
+              Gallery
+            </a>
             <a href="#contact" className="hover:text-[#13273F] transition-colors">
               Contact
             </a>

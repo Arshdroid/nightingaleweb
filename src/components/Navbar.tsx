@@ -58,7 +58,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
         {/* Zone 2: 5 Concise Single-Line Navigation Links */}
         <nav
           aria-label="Primary Navigation"
-          className="hidden lg:flex items-center gap-7 text-sm font-medium text-white"
+          className="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium text-white"
         >
           <a
             href="#home"
@@ -83,6 +83,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
             className="hover:underline underline-offset-8 decoration-white transition-opacity hover:opacity-80 whitespace-nowrap shrink-0"
           >
             Announcements
+          </a>
+          <a
+            href="#gallery"
+            className="hover:underline underline-offset-8 decoration-white transition-opacity hover:opacity-80 whitespace-nowrap shrink-0"
+          >
+            Gallery
           </a>
           <a
             href="#contact"
@@ -160,6 +166,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
                     className="hover:underline"
                   >
                     Announcements &amp; Notices
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#gallery"
+                    onClick={() => setDrawerOpen(false)}
+                    className="hover:underline"
+                  >
+                    Photo Gallery
                   </a>
                 </li>
                 <li>

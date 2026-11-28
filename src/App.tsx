@@ -3,6 +3,7 @@ import { MotionConfig } from 'motion/react';
 import { AboutSection } from './components/AboutSection';
 import { AnnouncementsSection } from './components/AnnouncementsSection';
 import { ContactAndFooterSection } from './components/ContactAndFooterSection';
+import { GallerySection } from './components/GallerySection';
 import { HalloweenSpiderWebs } from './components/HalloweenSpiderWebs';
 import { HeroBanner } from './components/HeroBanner';
 import { Navbar } from './components/Navbar';
@@ -39,6 +40,7 @@ export default function App() {
               <AboutSection />
               <ScheduleAndFacultySection />
               <AnnouncementsSection searchInputRef={searchInputRef} />
+              <GallerySection />
               <ContactAndFooterSection />
             </div>
           </div>

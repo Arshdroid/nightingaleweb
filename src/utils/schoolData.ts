@@ -65,7 +65,7 @@ export const SCHOOL_INFO = {
 export const BLOCK_D_FACULTY: FacultyContact[] = [
   {
     name: 'T.L. Chaudhary',
-    role: 'Founder Principal',
+    role: 'Founder Chairman',
     grade: 'Institutional Leadership',
     block: 'Main Campus',
     phone: '015435663',
@@ -75,6 +75,24 @@ export const BLOCK_D_FACULTY: FacultyContact[] = [
   {
     name: 'Ranjana Pradhan',
     role: 'Principal',
+    grade: 'Academic Administration',
+    block: 'Main Campus',
+    phone: '015435663',
+    email: 'school@nightingale.edu.np',
+    officeHours: 'Sun – Fri · 9:30 AM – 3:45 PM',
+  },
+  {
+    name: 'Jeetendra Bahadaur Thakuri',
+    role: 'Vice-Principal (Acting Principal)',
+    grade: 'Academic Administration',
+    block: 'Main Campus',
+    phone: '015435663',
+    email: 'school@nightingale.edu.np',
+    officeHours: 'Sun – Fri · 9:30 AM – 3:45 PM',
+  },
+  {
+    name: 'Binod Kumar Chaudhary',
+    role: 'Examination Head',
     grade: 'Academic Administration',
     block: 'Main Campus',
     phone: '015435663',
