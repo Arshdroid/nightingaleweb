@@ -113,26 +113,16 @@ export const AnnouncementsSection: React.FC<AnnouncementsSectionProps> = ({
                 transition={{ duration: 0.35, delay: Math.min(idx * 0.04, 0.2), ease: [0.16, 1, 0.3, 1] }}
                 className="glass-card-light p-6 flex flex-col md:flex-row md:items-start gap-4 md:gap-10 hover:border-neutral-400/50 transition-colors"
               >
-                <div className="md:w-56 shrink-0 flex flex-col gap-3">
-                  <div className="flex items-center gap-2 text-xs font-mono-tabular text-[#13273F]/65">
-                    <span>{item.date}</span>
-                    <span aria-hidden="true">·</span>
-                    <span
-                      className={`uppercase font-sans font-bold ${
-                        item.category === 'Schedule' ? 'text-[#4E0000] font-bold' : 'text-[#13273F]/65'
-                      }`}
-                    >
-                      {item.category}
-                    </span>
-                  </div>
-                  <div className="overflow-hidden rounded-xl border border-[#13273F]/15 bg-[#13273F]/5 shadow-sm">
-                    <img
-                      src={`/reel/frame_${String(((idx * 25) % 90) + 1).padStart(4, '0')}.jpg`}
-                      alt={item.title}
-                      loading="lazy"
-                      className="w-full h-28 object-cover transition-transform duration-500 hover:scale-105"
-                    />
-                  </div>
+                <div className="md:w-56 shrink-0 flex items-center gap-2 text-xs font-mono-tabular text-[#13273F]/65">
+                  <span>{item.date}</span>
+                  <span aria-hidden="true">·</span>
+                  <span
+                    className={`uppercase font-sans font-bold ${
+                      item.category === 'Schedule' ? 'text-[#4E0000] font-bold' : 'text-[#13273F]/65'
+                    }`}
+                  >
+                    {item.category}
+                  </span>
                 </div>
 
                 <div className="flex-1">
