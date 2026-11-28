@@ -24,8 +24,8 @@ export const ContactAndFooterSection: React.FC = () => {
   const watchdogRef = useRef<number | null>(null);
   const prevScrollBehaviorRef = useRef<string | null>(null);
 
-  // Speed in pixels per second (increased to ~175px/sec for brisk, smooth scroll)
-  const SCROLL_SPEED = 175;
+  // Speed in pixels per second — gentle enough to read each section as it passes
+  const SCROLL_SPEED = 125;
 
   const getScrollingElement = (): HTMLElement =>
     (document.scrollingElement as HTMLElement | null) || document.documentElement;
